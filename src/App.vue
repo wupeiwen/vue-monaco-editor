@@ -19,8 +19,7 @@ export default {
          opts: {
           value: '',//编辑器初始化输入内容
           autoIndent:true,//启用自动缩进调整。默认为false。
-          roundedSelection: true, // 右侧不显示编辑器预览框
-          autoIndent: true, // 自动缩进
+          roundedSelection: true // 右侧不显示编辑器预览框
         }
 
     }
@@ -32,7 +31,8 @@ export default {
       },
       // 编辑内容
       changeValue(val) {
-        // console.log(val)
+        // eslint-disable-next-line no-console
+        console.log(val)
       }
     }
 }
