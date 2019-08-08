@@ -1,5 +1,6 @@
 // custom-completion.js
 /* eslint-disable no-template-curly-in-string */
+import * as monaco from 'monaco-editor'
 export default [
     /**   * math内置函数   */
     {
