@@ -45,7 +45,7 @@
         },
         watch: {
           opts:{
-              handler(val,oldVal){
+              handler(){
                   this.initEditor()
               },
               deep:true
@@ -53,6 +53,7 @@
         },
         methods: {
             initConfig(){
+                let _this =  this
                 // 注册自定义语言
                 monaco.languages.register({
                     id: 'Aviator'
@@ -66,7 +67,7 @@
                 // 为该语言注册一个语言提示器--联想(提示)
 
                 monaco.languages.registerCompletionItemProvider('Aviator',{
-                    provideCompletionItems: function (model,position,context,token) { 
+                    provideCompletionItems: function (model,position) { 
 
                         // 获取当前行数
                         const line = position.lineNumber
@@ -82,7 +83,6 @@
 
                         // 通过下标来获取当前光标后一个内容，即为刚输入的内容   
                         const sym = content[column - 2]                        
-                        console.log();
                         
                         // 当前输入的都是.
                         if( sym === '.'){                            
@@ -98,10 +98,9 @@
                 })
             },
             initEditor() {
-                var _this =  this
                 // 在methods中定义的编辑器初始化方法
                 this.MonacoEnvironment = {
-                    getWorkerUrl: function(moduleId, label) {
+                    getWorkerUrl: function() {
                         return './editor.worker.bundle.js'
                     }
                 } 
